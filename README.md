@@ -1,24 +1,20 @@
-## FramePack Docker CUDA
-
-Very easy:
-
-```
-
-git clone https://github.com/akitaonrails/FramePack-Docker-CUDA.git
-cd FramePack-Docker-CUDA
-mkdir outputs
-mkdir hf_download
-
-# Build the image
-docker build -t framepack-torch26-cu124:latest .
-
-# Run mapping the directories outside:
-docker run -it --rm --gpus all -p 7860:7860 \
-  -v ./outputs:/app/outputs \
-  -v ./hf_download:/app/hf_download \
-  framepack-torch26-cu124:latest
-```
-
-The first time it runs, it will download all necessary HunyuanVideo, Flux and other neccessary models. It will be more than 30GB, so be patient, but they will be cached on the external mapped directory.
-
-When it finishes access http://localhost:7860 and that's it!
+# FramePack Docker CUDA This repository provides a Docker setup to run FramePack on Linux with CUDA support. 
+## 🚀 Quick Start 
+1. **Clone the repository and navigate into it:**
+2. ```bash git clone https://github.com/akitaonrails/FramePack-Docker-CUDA.git cd FramePack-Docker-CUDA ```
+3. 2. **Make the setup script executable:**
+   3. ```bash chmod +x setup.sh ```
+   4. 3. **Run the setup script:**
+      4. ```bash ./setup.sh ```
+   This script will:
+   - Install Docker and its dependencies.
+   - Add your user to the `docker` group.
+   - Clone the `FramePack-Docker-CUDA` repository.
+   - Create necessary directories (`outputs` and `hf_download`).
+   - Build the Docker image. - Run the Docker container with appropriate volume mappings.
+ 4. **Access the application:**
+    Once the container is running, open your browser and navigate to:
+    ``` http://localhost:7860 ```
+    The first time it runs, it will download all necessary models (e.g., HunyuanVideo, Flux), which may exceed 30GB. These will be cached in the `hf_download` directory for future use.
+## 📝 Notes - Ensure you have an NVIDIA GPU and the necessary drivers installed on your host machine. 
+- If you encounter permission issues with Docker, you may need to log out and log back in or run `newgrp docker` to apply group changes. For more details, refer to the official Docker installation guide for Ubuntu: https://docs.docker.com/engine/install/ubuntu/
