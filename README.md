@@ -16,5 +16,5 @@
     Once the container is running, open your browser and navigate to:
     ``` http://localhost:7860 ```
     The first time it runs, it will download all necessary models (e.g., HunyuanVideo, Flux), which may exceed 30GB. These will be cached in the `hf_download` directory for future use.
-## 📝 Notes - Ensure you have an NVIDIA GPU and the necessary drivers installed on your host machine. 
+## 📝 Notes - Ensure you have an NVIDIA GPU on your host machine. 
 - If you encounter permission issues with Docker, you may need to log out and log back in or run `newgrp docker` to apply group changes. For more details, refer to the official Docker installation guide for Ubuntu: https://docs.docker.com/engine/install/ubuntu/
